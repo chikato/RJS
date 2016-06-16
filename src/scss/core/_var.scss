@@ -1,0 +1,30 @@
+/*
+ * Typography
+ * ========================================================================== */
+
+$font-family-base:      'Segoe UI', 'HelveticaNeue-Light', sans-serif;
+
+/*
+ * Media queries breakpoints
+ * ========================================================================== */
+
+$mobile-min:                320px;  /* Extra small screen / phone */
+$tablet-min:                768px;  /* Small screen / tablet */
+$desktop-small-min:         960px;  /* Medium screen / desktop */
+$desktop-large-min:         1200px; /* Large screen / wide desktop */
+$desktop-larger-min:        1400px; /* Larger screen / wider desktop */
+
+/*
+/* Screen sizes
+* ========================================================================== */
+
+$mobile: "only screen and (max-width:#{$tablet-min - 1px})";
+$tablet: "only screen and (min-width:#{$tablet-min}) and (max-width:#{$desktop-small-min - 1px})";
+$desktop: "only screen and (min-width:#{$desktop-small-min})";
+$desktop_small: "only screen and (min-width:#{$desktop-small-min}) and (max-width:#{$desktop-large-min - 1px})";
+$desktop_large: "only screen and (min-width:#{$desktop-large-min})";
+$desktop_larger: "only screen and (min-width:#{$desktop-larger-min})";
+
+/*
+/* Colors
+* ========================================================================== */

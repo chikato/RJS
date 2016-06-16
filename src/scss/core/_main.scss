@@ -1,0 +1,9 @@
+.container {
+  margin: 0 auto;
+}
+
+@media #{$desktop_small} {
+  .container {
+    max-width: $tablet-min;
+  }
+}
