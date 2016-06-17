@@ -2,8 +2,12 @@
   margin: 0 auto;
 }
 
-@media #{$desktop_small} {
+@media #{$desktop} {
   .container {
-    max-width: $tablet-min;
+    max-width: 1000px;
   }
+}
+
+@media #{$desktop_small} {
+
 }
