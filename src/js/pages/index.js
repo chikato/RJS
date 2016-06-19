@@ -31,8 +31,8 @@ let CommentForm = React.createClass({
     handleSubmit: function (e) {
         e.preventDefault();
 
-        let author = this.props.author.trim();
-        let text = this.props.text.trim();
+        let author = this.state.author.trim();
+        let text = this.state.text.trim();
 
         if (!author || !text) return;
         this.props.onCommentSubmit({author: author, text: text});
@@ -74,17 +74,34 @@ let CommentBox = React.createClass({
             }.bind(this),
 
             error: function (xhr, status, err) {
-                console.log(this.props.url, status, err.toString());
+                console.error(this.props.url, status, err.toString());
             }.bind(this)
         });
     },
 
-    postComment: function () {
+    postComment: function (data) {
+        let comments = this.state.data;
+        data.id = Date.now();
+        this.setState({data: comments.concat([data])});
 
+        $.ajax({
+            url: this.props.url,
+            dataType: "json",
+            type: "POST",
+            data: data,
+
+            success: function(data) {
+                this.setState({data: data});
+            }.bind(this),
+
+            error: function(xhr, status, err) {
+                console.error(this.props.url, status, err.toString());
+            }.bind(this)
+        });
     },
 
     componentDidMount: function () {
-        this.callAPI();
+        this.getComments();
         setInterval(this.getComments, this.props.pollInterval);
     },
 
